@@ -7,12 +7,25 @@ class DashTabel extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            d: []
+            d: [],
+            curentData:[],
+            edit:false
         }
     }
-
-    edit() {
-
+    deleteData = (del, dropRowKeys) => {
+        const dropRowKeysStr = dropRowKeys.join(',');
+        if (confirm(`(It's a custom confirm)Are you sure you want to delete ${dropRowKeysStr}?`)) {
+            Axios.post("http://sampeweweh.dx.am/backend/index.php/tps/delStaff", dropRowKeys).then((response) => {
+                console.log(response);
+                this.props.refresh();
+            })
+        }
+    }
+    edit = (row) => {       
+        this.setState({
+            curentData: row,
+            edit: true,          
+        })
     }
     
     componentDidMount() {
@@ -38,8 +51,8 @@ class DashTabel extends Component {
                 <link rel="stylesheet"
                     href="https://npmcdn.com/react-bootstrap-table/dist/react-bootstrap-table-all.min.css">
                 </link>
-                {this.props.dataStaf}
-                <BootstrapTable data={this.state.d}
+                redux {this.props.dataStaf}
+                <BootstrapTable data={this.props.dataStaff}
                     striped
                     insertRow
                     deleteRow={true}
@@ -52,7 +65,7 @@ class DashTabel extends Component {
                     <TableHeaderColumn dataField='foto'>Alamat</TableHeaderColumn>
                     <TableHeaderColumn dataField='id' isKey hidden> Action</TableHeaderColumn>
                 </BootstrapTable>
-                <button onClick={this.props.refDataStaf}>ttt</button>
+                <button onClick={this.props.refDataStaf}>tes props redux</button>
             </div>
         );
     }

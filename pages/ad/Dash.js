@@ -6,14 +6,32 @@ import Navigasi from './bag/Navigasi';
 import MenuNav from './bag/MenuNav';
 import DashTabel from './DashTabel';
 import { InsertButton } from 'react-bootstrap-table';
+import DashFormTambahData from './DashFormTambahData';
+import Axios from 'axios';
 class Dash extends Component {
     constructor(props) {
         super(props);
-        this.state ={
-            tambahStaf : false
+        this.state = {
+            tambahStaf: false,
+            dataStaff: []
         }
     }
-    
+    componentDidMount() {
+        Axios.get("http://sampeweweh.dx.am/backend/index.php/tps/getStaff").then((response) => {
+            console.log(response.data);
+            this.setState({
+                dataStaff: response.data
+            })
+        })
+    }
+    refreshData = () => {
+        Axios.get("http://sampeweweh.dx.am/backend/index.php/tps/getStaff").then((response) => {
+            console.log(response.data);
+            this.setState({
+                dataStaff: response.data
+            })
+        })
+    }
     showFormData = () => {
         return (
             <InsertButton
@@ -24,6 +42,11 @@ class Dash extends Component {
                 onClick={() => (this.setState({ tambahStaf: !this.state.tambahStaf }))} />
         );
     }
+    closeForm=()=>{
+        this.setState({
+            tambahStaf: !this.state.tambahStaf
+        })
+    }
     render() {
         return (
             <div id="wrapper">
@@ -31,6 +54,17 @@ class Dash extends Component {
                 <Navigasi />
                 <div id="page-wrapper" className="gray-bg dashbard-1">
                     <MenuNav />
+                    {
+                        this.state.tambahStaf ?
+                            <div>
+                                <DashFormTambahData 
+                                    refresh = {this.refreshData}
+                                    closeForm = {this.closeForm}
+                                />
+                            </div>
+                            :
+                            <div>gak</div>
+                    }
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="wrapper wrapper-content">
@@ -47,24 +81,25 @@ class Dash extends Component {
                                         </div>
                                     </div>
                                     <div className="ibox-content">
-                                        {
-                                            this.state.tambahStaf ?
-                                            <div>tambah</div>
-                                            :
-                                            <div>gak</div>
-                                        }
-                                       <DashTabel showFormData = {this.showFormData}/>
+
+                                        <DashTabel showFormData={this.showFormData} 
+                                            dataStaff = {this.state.dataStaff}
+                                            refresh = {this.refreshData}
+                                           
+                                        />
+
+
                                     </div>
                                 </div>
                             </div>
-                            <FooterDash />
+                            
                         </div>
                     </div>
-
+                   
                 </div>
-                halaman dashboard
-
+                <FooterDash />
             </div>
+           
         );
     }
 }
