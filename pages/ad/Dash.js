@@ -13,16 +13,12 @@ class Dash extends Component {
         super(props);
         this.state = {
             tambahStaf: false,
-            dataStaff: []
+            dataStaff: [],
+            edit : false
         }
     }
     componentDidMount() {
-        Axios.get("http://sampeweweh.dx.am/backend/index.php/tps/getStaff").then((response) => {
-            console.log(response.data);
-            this.setState({
-                dataStaff: response.data
-            })
-        })
+       this.refreshData();
     }
     refreshData = () => {
         Axios.get("http://sampeweweh.dx.am/backend/index.php/tps/getStaff").then((response) => {
@@ -53,9 +49,9 @@ class Dash extends Component {
                 <HeaderDash title="Dashborad-Admin" />
                 <Navigasi />
                 <div id="page-wrapper" className="gray-bg dashbard-1">
-                    <MenuNav />
+                    <MenuNav />                   
                     {
-                        this.state.tambahStaf ?
+                        this.state.edit ?
                             <div>
                                 <DashFormTambahData 
                                     refresh = {this.refreshData}

@@ -3,6 +3,19 @@ const s1 = {
     marginbottom: 0
 }
 class MenuNav extends Component {
+    constructor(props) {
+        super(props);
+        this.state={
+            nama : ''
+        }
+    }
+    
+    componentDidMount(){
+        var data = this.getCookie("userId")
+        this.setState({
+            nama : data
+        })
+    }
     logout() {
         var data = this.getCookie("userId")
         console.log(data);
@@ -41,7 +54,7 @@ class MenuNav extends Component {
                             </div>
                             <ul className="nav navbar-top-links navbar-right">
                                 <li>
-                                    <span className="m-r-sm text-muted welcome-message">Selamat Datang</span>
+                                    <span className="m-r-sm text-muted welcome-message">Selamat Datang {this.state.nama}</span>
                                 </li>
                                 <li>
                                     <a onClick={this.logout.bind(this)} href="#">
