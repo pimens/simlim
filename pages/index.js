@@ -8,54 +8,85 @@ import Heder from './bagian/ind/Heder';
 import Axios from 'axios'
 const styles = theme => ({
     container: {
-      display: 'flex',
-      flexWrap: 'wrap',
+        display: 'flex',
+        flexWrap: 'wrap',
     },
     textField: {
-      marginLeft: theme.spacing.unit,
-      marginRight: theme.spacing.unit,
-      width: 200,
+        marginLeft: theme.spacing.unit,
+        marginRight: theme.spacing.unit,
+        width: 200,
     },
     dense: {
-      marginTop: 19,
+        marginTop: 19,
     },
     menu: {
-      width: 200,
+        width: 200,
     },
-  });
+});
 class index extends Component {
     constructor(props) {
         super(props);
-        this.state ={
-            email : '',
-            password : ''
+        this.state = {
+            da: {
+                email: '',
+                password: ''
+            },
+            valid: true,
+            msg: ''
         }
+
     }
-    login() {        
-        Axios.post("http://sampeweweh.dx.am/backend/index.php/tps/login", this.state).then((response) => {
-            if (response.data.length === 0) {
-                console.log("gagal");
-                console.log(response);
-            }
-            else {
-                console.log(response);
-                document.cookie = "userId=200; max-age=3600; path=/;";
-                //    localStorage.setItem("user", JSON.stringify(response.data));
-                //    console.log(JSON.parse(localStorage.getItem("user")));
-                //    var aa = JSON.parse(localStorage.getItem("user"))
-                //    console.log(aa[0].nama)
-               window.location.href = "/ad/Dash";
+    login = () => {
+        console.log(this.state.da)
+        if (this.state.da.email === '' | this.state.da.password === '') {
+            console.log("kososn")
+            this.setState({
+                valid: false,
+                msg: "gak boleh kosong"
+            })
+        }
+        else {
+            Axios.post("http://sampeweweh.dx.am/backend/index.php/tps/login", this.state.da).then((response) => {
+                if (response.data.length === 0) {
+                    console.log(response);
+                    this.setState({
+                        valid: false,
+                        msg: "password atau uname salah"
+                    })
+                }
+                else {
+                    console.log(response);
+                    document.cookie = "userId=200; max-age=3600; path=/;";
+                    //    localStorage.setItem("user", JSON.stringify(response.data));
+                    //    console.log(JSON.parse(localStorage.getItem("user")));
+                    //    var aa = JSON.parse(localStorage.getItem("user"))
+                    //    console.log(aa[0].nama)
+                    // window.location.href = "/ad/Dash";
+                }
+
+            })
+        }
+
+    }
+    handleInput(e) {
+        const name = e.target.name;
+        const value = e.target.value;
+
+        this.setState({
+            da: {
+                ...this.state.da,
+                [name]: value
             }
 
-        })
-    }    
+        });
+    }
     render() {
         const style_2 = {
             backgroundImage: 'url(' + 'static/img/homeunram.jpg' + ')'
         };
         return (
             <div>
-                <Heder/>
+                <Heder />
                 <style jsx>{`
                     
                     marquee {
@@ -99,7 +130,7 @@ class index extends Component {
                         </div>
                     </div>
                 </div>
-             
+
 
                 {/* modal */}
                 <div className="modal fade" id="modelId" tabIndex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
@@ -111,26 +142,36 @@ class index extends Component {
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <div className="modal-body">                          
+                            <div className="modal-body">
+                                {
+                                    this.state.valid ? <div></div> :
+                                        <div class="alert alert-secondary" role="alert">
+                                            {this.state.msg}
+                                            This is a secondary alert with . Give it a click if you like.
+                                        </div>                                        
+                                }
                                 <TextField
                                     id="standard-with-placeholder"
                                     label="Username"
+                                    name="email"
                                     placeholder="Usernameee"
                                     fullWidth
                                     className={this.props.classes.textField}
-                                    margin="normal" 
-                                    onChange={(e)=>{this.setState({email:e.target.value})}}
+                                    margin="normal"
+                                    onChange={(e) => this.handleInput(e)}
                                 />
-                              <br/>
-                                 <TextField
+                                <br />
+                                <TextField
                                     id="standard-with-placeholder"
                                     label="password"
                                     placeholder="passwrod"
+                                    name="password"
                                     fullWidth
                                     className={this.props.classes.textField}
                                     margin="normal"
-                                    ref="password"                   
-                                     onChange={e=>{this.setState({password:e.target.value})}}                
+                                    ref="password"
+                                    onChange={(e) => this.handleInput(e)}
+                                //  onChange={e=>{this.setState({password:e.target.value})}}                
                                 />
                                 {/* <Login/> */}
                             </div>
@@ -141,12 +182,12 @@ class index extends Component {
                         </div>
                     </div>
                 </div>
-               <FooterIndex/>
+                <FooterIndex />
             </div >
         );
     }
 }
 index.propTypes = {
     classes: PropTypes.object.isRequired,
-  };
+};
 export default withStyles(styles)(index)
