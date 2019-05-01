@@ -1,20 +1,20 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Nav from './bagian/Nav';
-import Container from './bagian/Container';
+
 import Kegiatan from './bagian/Kegiatan';
 import { incrementCount } from '../store'
 
 
 class Crud extends Component {    
     render() {
-        console.log(this.props)
+       // console.log(this.props)
         return (
             <div>            
                <Nav />
                {this.props.count}
                <button onClick={this.props.incrementCount} > tamba</button>
-               <Container /> 
+             
                <Kegiatan />
             </div>     
         );
