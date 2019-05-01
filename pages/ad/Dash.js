@@ -8,17 +8,19 @@ import DashTabel from './DashTabel';
 import { InsertButton } from 'react-bootstrap-table';
 import DashFormTambahData from './DashFormTambahData';
 import Axios from 'axios';
+import {connect} from 'react-redux'
+import DashFormEditStaff from './DashFormEditStaff';
 class Dash extends Component {
     constructor(props) {
         super(props);
         this.state = {
             tambahStaf: false,
             dataStaff: [],
-            edit : false
+            edit: false
         }
     }
     componentDidMount() {
-       this.refreshData();
+        this.refreshData();
     }
     refreshData = () => {
         Axios.get("http://sampeweweh.dx.am/backend/index.php/tps/getStaff").then((response) => {
@@ -38,7 +40,7 @@ class Dash extends Component {
                 onClick={() => (this.setState({ tambahStaf: !this.state.tambahStaf }))} />
         );
     }
-    closeForm=()=>{
+    closeForm = () => {
         this.setState({
             tambahStaf: !this.state.tambahStaf
         })
@@ -49,55 +51,38 @@ class Dash extends Component {
                 <HeaderDash title="Dashborad-Admin" />
                 <Navigasi />
                 <div id="page-wrapper" className="gray-bg dashbard-1">
-                    <MenuNav />                   
+                    <MenuNav />
                     {
-                        this.state.edit ?
+                        this.state.tambahStaf ?
                             <div>
-                                <DashFormTambahData 
-                                    refresh = {this.refreshData}
-                                    closeForm = {this.closeForm}
+                                <DashFormTambahData
+                                    refresh={this.refreshData}
+                                    closeForm={this.closeForm}
                                 />
                             </div>
                             :
-                            <div>gak</div>
-                    }
-                    <div className="row">
-                        <div className="col-lg-12">
-                            <div className="wrapper wrapper-content">
-                                <div className="ibox float-e-margins">
-                                    <div className="ibox-title">
-                                        <h5>New data for the report</h5> <span className="label label-primary">IN+</span>
-                                        <div className="ibox-tools">
-                                            <a className="collapse-link">
-                                                <i className="fa fa-chevron-up"></i>
-                                            </a>
-                                            <a className="close-link">
-                                                <i className="fa fa-times"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div className="ibox-content">
+                            <div></div>
+                    }  
+                    {
+                        this.props.editStaf ? 
+                        <div><DashFormEditStaff/></div>                        
+                        :
+                        <div>false</div>
+                    }                  
+                    <DashTabel showFormData={this.showFormData}
+                        dataStaff={this.state.dataStaff}
+                        refresh={this.refreshData}
 
-                                        <DashTabel showFormData={this.showFormData} 
-                                            dataStaff = {this.state.dataStaff}
-                                            refresh = {this.refreshData}
-                                           
-                                        />
-
-
-                                    </div>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div>
-                   
+                    />
                 </div>
                 <FooterDash />
             </div>
-           
+
         );
     }
 }
-
-export default Dash;
+function mapState(state) {
+    const { editStaf } = state
+    return { editStaf }
+}
+export default connect(mapState)(Dash);

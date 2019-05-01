@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-
+import Axios from 'axios'
 const styles = theme => ({
     container: {
       display: 'flex',
@@ -31,15 +31,24 @@ class About extends Component {
         this.state = {
             d: null,
             da: {
-                nama: '',
-                alamat: ''
-            }
+                nama: 'pimen',
+                alamat: 'xxx'
+            },
+            dd : []
         }
     }
-
+    componentDidMount(){
+      Axios.get("http://sampeweweh.dx.am/backend/index.php/tps/getStaff").then((response) => {
+            console.log(response.data);
+            this.setState({
+                dd: response.data
+            })
+        })
+    }
 
     render() {
         const { classes } = this.props;
+        console.log(this.props)
         return (
             <div>
                 <Nav />
@@ -52,15 +61,15 @@ class About extends Component {
                 />
                 halaman about == {this.props.count}
             <div className="example">Hello World!</div>
-            
-            <button type="button" onClick={this.props.decrementCount} className="btn btn-success">Login</button>
+            {this.props.dataStaf.nama}
+            <button type="button" onClick={()=>this.props.decrementCount(this.state.da)} className="btn btn-success">Login</button>
             </div >
         );
     }
 }
 function mapState(state){
-    const {count} = state
-    return {count};
+    const {count,dataStaf} = state
+    return {count,dataStaf};
 }
 About.propTypes = {
     classes: PropTypes.object.isRequired,

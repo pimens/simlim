@@ -7,7 +7,8 @@ const exampleInitialState = {
   light: false,
   count: 50,
   dataStaf: [],
-  da:[]
+  da: [],
+  editStaf: false
 }
 
 export const actionTypes = {
@@ -15,14 +16,15 @@ export const actionTypes = {
   INCREMENT: 'INCREMENT',
   DECREMENT: 'DECREMENT',
   RESET: 'RESET',
-  GETSTAFF: 'GETSTAFF'
+  GETSTAFF: 'GETSTAFF',
+  SETCURRENTSTAFF: 'SETCURRENTSTAFF',
+  EDITSTAFF: 'EDITSTAFF'
 }
 
 // REDUCERS
 export const reducer = (state = exampleInitialState, action) => {
   switch (action.type) {
     case actionTypes.TICK:
-      //console.log(action.ts);
       return Object.assign({}, state, {
         lastUpdate: action.ts,
         light: !!action.light
@@ -33,13 +35,20 @@ export const reducer = (state = exampleInitialState, action) => {
       })
     case actionTypes.DECREMENT:
       return Object.assign({}, state, {
-        count: state.count - 1
+        dataStaf: action.dt
       })
-    case actionTypes.GETSTAFF:  
-          return Object.assign({}, state, {
-            dataStaf: state.dataStaf+10
-          })          
-       
+    case actionTypes.GETSTAFF:
+      return Object.assign({}, state, {
+        dataStaf: state.dataStaf + 10
+      })
+    case actionTypes.EDITSTAFF:
+      return Object.assign({}, state, {
+        editStaf: !state.editStaf
+      })
+    case actionTypes.SETCURRENTSTAFF:
+      return Object.assign({}, state, {
+        dataStaf: action.dt
+      })
     case actionTypes.RESET:
       return Object.assign({}, state, {
         count: exampleInitialState.count
@@ -61,8 +70,8 @@ export const incrementCount = () => {
   return { type: actionTypes.INCREMENT }
 }
 
-export const decrementCount = () => {
-  return { type: actionTypes.DECREMENT }
+export const decrementCount = (g) => {
+  return { type: actionTypes.DECREMENT, dt: g }
 }
 
 export const resetCount = () => {
@@ -74,7 +83,12 @@ export const refDataStaf = () => {
   // })
   return { type: actionTypes.GETSTAFF }
 }
-
+export const setCurrentStaff = (g) => {
+  return { type: actionTypes.SETCURRENTSTAFF, dt: g }
+}
+export const editStaff = () => {
+  return { type: actionTypes.EDITSTAFF }
+}
 export function initializeStore(initialState = exampleInitialState) {
   return createStore(
     reducer,
