@@ -22,7 +22,7 @@ class DashTabel extends Component {
         }
     }
     edit = (row) => {
-        this.props.editStaff();
+        this.props.editStaff(true);
         this.props.setCurrentStaff(row);
     }
 
@@ -65,7 +65,7 @@ class DashTabel extends Component {
                                         </a>
                                     </div>
                                 </div>
-                                <div className="ibox-content">                                
+                                <div className="ibox-content"> 
                                     <BootstrapTable data={this.props.dataStaff}
                                         striped
                                         insertRow

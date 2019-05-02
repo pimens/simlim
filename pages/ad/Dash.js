@@ -65,7 +65,8 @@ class Dash extends Component {
                     }  
                     {
                         this.props.editStaf ? 
-                        <div><DashFormEditStaff/></div>                        
+                        <div><DashFormEditStaff refresh={this.refreshData}
+                        /></div>                        
                         :
                         <div>false</div>
                     }                  
