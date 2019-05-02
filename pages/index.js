@@ -63,7 +63,7 @@ class index extends Component {
                         //    console.log(JSON.parse(localStorage.getItem("user")));
                         //    var aa = JSON.parse(localStorage.getItem("user"))
                         //    console.log(aa[0].nama)
-                        //window.location.href = "/ad/Dash";
+                        window.location.href = "/ad/Dash";
                     }
                     else{                       
                         document.cookie = `userId=${response.data[0].nama}; max-age=3600; path=/;`;
