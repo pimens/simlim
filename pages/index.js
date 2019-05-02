@@ -54,13 +54,25 @@ class index extends Component {
                     })
                 }
                 else {
-                    console.log(response.data[0].nama);
-                    document.cookie = `userId=${response.data[0].nama}; max-age=3600; path=/;`;
-                    //    localStorage.setItem("user", JSON.stringify(response.data));
-                    //    console.log(JSON.parse(localStorage.getItem("user")));
-                    //    var aa = JSON.parse(localStorage.getItem("user"))
-                    //    console.log(aa[0].nama)
-                    window.location.href = "/ad/Dash";
+                    if(response.data[0].bidang ==="Agro")
+                    {
+                        console.log(response.data[0].nama);
+                        document.cookie = "adminLogin=adminsimlim; max-age=3600; path=/;";
+                        console.log("admin")          
+                        //    localStorage.setItem("user", JSON.stringify(response.data));
+                        //    console.log(JSON.parse(localStorage.getItem("user")));
+                        //    var aa = JSON.parse(localStorage.getItem("user"))
+                        //    console.log(aa[0].nama)
+                        //window.location.href = "/ad/Dash";
+                    }
+                    else{                       
+                        document.cookie = `userId=${response.data[0].nama}; max-age=3600; path=/;`;
+                        console.log(response.data[0].nama);
+
+                        console.log("Peneliti")        
+                        window.location.href = "/peneliti/DashPeneliti";        
+                    }
+                
                 }
 
             })

@@ -24,7 +24,7 @@ class Dash extends Component {
     }
     refreshData = () => {
         Axios.get("http://sampeweweh.dx.am/backend/index.php/tps/getStaff").then((response) => {
-            console.log(response.data);
+            //console.log(response.data);
             this.setState({
                 dataStaff: response.data
             })

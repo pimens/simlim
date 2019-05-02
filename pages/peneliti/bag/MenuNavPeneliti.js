@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 const s1 = {
     marginbottom: 0
 }
-class MenuNav extends Component {
+class MenuNavPeneliti extends Component {
     constructor(props) {
         super(props);
         this.state={
@@ -11,16 +11,16 @@ class MenuNav extends Component {
     }
     
     componentDidMount(){
-        var data = this.getCookie("adminLogin")
+        var data = this.getCookie("userId")
         this.setState({
             nama : data
         })
     }
     logout() {
-        var data = this.getCookie("adminLogin")
+        var data = this.getCookie("userId")
         console.log(data);
-        document.cookie = "adminLogin=; path=/;";
-        var data = this.getCookie("adminLogin")
+        document.cookie = "userId=; path=/;";
+        var data = this.getCookie("userId")
         console.log(data);
         window.location.href = "/";
     }
@@ -74,4 +74,4 @@ class MenuNav extends Component {
     }
 }
 
-export default MenuNav;
+export default MenuNavPeneliti;

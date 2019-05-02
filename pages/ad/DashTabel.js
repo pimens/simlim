@@ -28,7 +28,7 @@ class DashTabel extends Component {
 
     componentDidMount() {
         Axios.get("http://sampeweweh.dx.am/backend/index.php/tps/getStaff").then((response) => {
-            console.log(response.data);
+            //console.log(response.data);
             this.setState({
                 d: response.data
             })

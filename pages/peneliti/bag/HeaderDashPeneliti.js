@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Head from 'next/head'
-class HeaderDash extends Component {
+class HeaderDashPeneliti extends Component {
     getCookie(cname) {
         var name = cname + "=";
         var decodedCookie = decodeURIComponent(document.cookie);
@@ -17,12 +17,12 @@ class HeaderDash extends Component {
         return "";
       }
     componentDidMount(){
-        var data = this.getCookie("adminLogin")
+        var data = this.getCookie("userId")
         if (data === null | data==="") {
             console.log("not yet login")    
             window.location.href = "/";
         }
-        // console.log(data);
+        console.log(data);
     }
     render() {
         return (
@@ -43,4 +43,4 @@ class HeaderDash extends Component {
     }
 }
 
-export default HeaderDash;
+export default HeaderDashPeneliti;
