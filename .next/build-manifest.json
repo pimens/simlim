@@ -1,27 +1,150 @@
 {
-  "devFiles": [
-    "static/development/dll/dll_2011977376de5c4d4cfb.js"
-  ],
+  "devFiles": [],
   "pages": {
+    "/": [
+      "static/runtime/webpack-a79426b5e11f0ba5879d.js",
+      "static/chunks/commons.b47542ffb9acd9abf797.js",
+      "static/runtime/main-4258d255276bd541723d.js"
+    ],
+    "/Crud": [
+      "static/runtime/webpack-a79426b5e11f0ba5879d.js",
+      "static/chunks/commons.b47542ffb9acd9abf797.js",
+      "static/runtime/main-4258d255276bd541723d.js"
+    ],
     "/_app": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
+      "static/runtime/webpack-a79426b5e11f0ba5879d.js",
+      "static/chunks/commons.b47542ffb9acd9abf797.js",
+      "static/runtime/main-4258d255276bd541723d.js"
     ],
     "/_error": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
+      "static/runtime/webpack-a79426b5e11f0ba5879d.js",
+      "static/chunks/commons.b47542ffb9acd9abf797.js",
+      "static/runtime/main-4258d255276bd541723d.js"
     ],
     "/ad/Dash": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
+      "static/runtime/webpack-a79426b5e11f0ba5879d.js",
+      "static/chunks/commons.b47542ffb9acd9abf797.js",
+      "static/runtime/main-4258d255276bd541723d.js"
     ],
-    "/next/dist/pages/_error": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
+    "/ad/DashFormEditStaff": [
+      "static/runtime/webpack-a79426b5e11f0ba5879d.js",
+      "static/chunks/commons.b47542ffb9acd9abf797.js",
+      "static/runtime/main-4258d255276bd541723d.js"
+    ],
+    "/ad/DashFormTambahData": [
+      "static/runtime/webpack-a79426b5e11f0ba5879d.js",
+      "static/chunks/commons.b47542ffb9acd9abf797.js",
+      "static/runtime/main-4258d255276bd541723d.js"
+    ],
+    "/ad/DashTabel": [
+      "static/runtime/webpack-a79426b5e11f0ba5879d.js",
+      "static/chunks/commons.b47542ffb9acd9abf797.js",
+      "static/runtime/main-4258d255276bd541723d.js"
+    ],
+    "/ad/bag/FooterDash": [
+      "static/runtime/webpack-a79426b5e11f0ba5879d.js",
+      "static/chunks/commons.b47542ffb9acd9abf797.js",
+      "static/runtime/main-4258d255276bd541723d.js"
+    ],
+    "/ad/bag/HeaderDash": [
+      "static/runtime/webpack-a79426b5e11f0ba5879d.js",
+      "static/chunks/commons.b47542ffb9acd9abf797.js",
+      "static/runtime/main-4258d255276bd541723d.js"
+    ],
+    "/ad/bag/MenuNav": [
+      "static/runtime/webpack-a79426b5e11f0ba5879d.js",
+      "static/chunks/commons.b47542ffb9acd9abf797.js",
+      "static/runtime/main-4258d255276bd541723d.js"
+    ],
+    "/ad/bag/Navigasi": [
+      "static/runtime/webpack-a79426b5e11f0ba5879d.js",
+      "static/chunks/commons.b47542ffb9acd9abf797.js",
+      "static/runtime/main-4258d255276bd541723d.js"
+    ],
+    "/admin/beranda/AdmBeranda": [
+      "static/runtime/webpack-a79426b5e11f0ba5879d.js",
+      "static/chunks/commons.b47542ffb9acd9abf797.js",
+      "static/runtime/main-4258d255276bd541723d.js"
+    ],
+    "/admin/beranda/FormIndexTambahData": [
+      "static/runtime/webpack-a79426b5e11f0ba5879d.js",
+      "static/chunks/commons.b47542ffb9acd9abf797.js",
+      "static/runtime/main-4258d255276bd541723d.js"
+    ],
+    "/admin/beranda/TabelIndexStaff": [
+      "static/runtime/webpack-a79426b5e11f0ba5879d.js",
+      "static/chunks/commons.b47542ffb9acd9abf797.js",
+      "static/runtime/main-4258d255276bd541723d.js"
+    ],
+    "/bagian/Boots": [
+      "static/runtime/webpack-a79426b5e11f0ba5879d.js",
+      "static/chunks/commons.b47542ffb9acd9abf797.js",
+      "static/runtime/main-4258d255276bd541723d.js"
+    ],
+    "/bagian/DKegiatan": [
+      "static/runtime/webpack-a79426b5e11f0ba5879d.js",
+      "static/chunks/commons.b47542ffb9acd9abf797.js",
+      "static/runtime/main-4258d255276bd541723d.js"
+    ],
+    "/bagian/HeaderPorto": [
+      "static/runtime/webpack-a79426b5e11f0ba5879d.js",
+      "static/chunks/commons.b47542ffb9acd9abf797.js",
+      "static/runtime/main-4258d255276bd541723d.js"
+    ],
+    "/bagian/Kegiatan": [
+      "static/runtime/webpack-a79426b5e11f0ba5879d.js",
+      "static/chunks/commons.b47542ffb9acd9abf797.js",
+      "static/runtime/main-4258d255276bd541723d.js"
+    ],
+    "/bagian/Nav": [
+      "static/runtime/webpack-a79426b5e11f0ba5879d.js",
+      "static/chunks/commons.b47542ffb9acd9abf797.js",
+      "static/runtime/main-4258d255276bd541723d.js"
+    ],
+    "/bagian/NavAdmin": [
+      "static/runtime/webpack-a79426b5e11f0ba5879d.js",
+      "static/chunks/commons.b47542ffb9acd9abf797.js",
+      "static/runtime/main-4258d255276bd541723d.js"
+    ],
+    "/bagian/ind/FooterIndex": [
+      "static/runtime/webpack-a79426b5e11f0ba5879d.js",
+      "static/chunks/commons.b47542ffb9acd9abf797.js",
+      "static/runtime/main-4258d255276bd541723d.js"
+    ],
+    "/bagian/ind/Heder": [
+      "static/runtime/webpack-a79426b5e11f0ba5879d.js",
+      "static/chunks/commons.b47542ffb9acd9abf797.js",
+      "static/runtime/main-4258d255276bd541723d.js"
+    ],
+    "/index": [
+      "static/runtime/webpack-a79426b5e11f0ba5879d.js",
+      "static/chunks/commons.b47542ffb9acd9abf797.js",
+      "static/runtime/main-4258d255276bd541723d.js"
     ],
     "/peneliti/DashPeneliti": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
+      "static/runtime/webpack-a79426b5e11f0ba5879d.js",
+      "static/chunks/commons.b47542ffb9acd9abf797.js",
+      "static/runtime/main-4258d255276bd541723d.js"
+    ],
+    "/peneliti/bag/FooterDashPeneliti": [
+      "static/runtime/webpack-a79426b5e11f0ba5879d.js",
+      "static/chunks/commons.b47542ffb9acd9abf797.js",
+      "static/runtime/main-4258d255276bd541723d.js"
+    ],
+    "/peneliti/bag/HeaderDashPeneliti": [
+      "static/runtime/webpack-a79426b5e11f0ba5879d.js",
+      "static/chunks/commons.b47542ffb9acd9abf797.js",
+      "static/runtime/main-4258d255276bd541723d.js"
+    ],
+    "/peneliti/bag/MenuNavPeneliti": [
+      "static/runtime/webpack-a79426b5e11f0ba5879d.js",
+      "static/chunks/commons.b47542ffb9acd9abf797.js",
+      "static/runtime/main-4258d255276bd541723d.js"
+    ],
+    "/peneliti/bag/NavigasiPeneliti": [
+      "static/runtime/webpack-a79426b5e11f0ba5879d.js",
+      "static/chunks/commons.b47542ffb9acd9abf797.js",
+      "static/runtime/main-4258d255276bd541723d.js"
     ]
   }
 }
