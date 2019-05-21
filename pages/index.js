@@ -67,7 +67,7 @@ class index extends Component {
                     }
                     else{                       
                         document.cookie = `userId=${response.data[0].nama}; max-age=3600; path=/;`;
-                        console.log(response.data[0].nama);
+                        // console.log(response.data[0].nama);
 
                         console.log("Peneliti")        
                         window.location.href = "/peneliti/DashPeneliti";        
