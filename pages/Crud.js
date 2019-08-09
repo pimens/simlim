@@ -8,7 +8,7 @@ import { incrementCount } from '../store'
 
 class Crud extends Component {    
     render() {
-       // console.log(this.props)
+       // console.log(this.propsss)
         return (
             <div>            
                <Nav />
