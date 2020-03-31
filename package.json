@@ -15,7 +15,7 @@
   "dependencies": {
     "@material-ui/core": "^3.9.3",
     "axios": "^0.18.0",
-    "next": "^8.1.0",
+    "next": "^9.3.2",
     "next-redux-wrapper": "^3.0.0-alpha.2",
     "react": "^16.8.6",
     "react-bootstrap-table": "^4.3.1",
